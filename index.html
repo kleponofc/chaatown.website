@@ -167,6 +167,39 @@ section{padding:56px 0 72px}
 .logo{width:40px;height:40px;border-radius:50%;object-fit:cover;background:var(--card);border:2px solid var(--line);vertical-align:middle;margin-right:10px}
 .av img{width:100%;height:100%;object-fit:cover;display:block}
 .team .av{border-radius:50%}
+.subtabs.pills{display:flex;flex-wrap:wrap;gap:8px;border:0;background:transparent}
+.pills .stab{border:2px solid var(--line);background:var(--card)}
+.pills .stab+.stab{border-left:2px solid var(--line)}
+.pills .stab[aria-selected="true"]{background:var(--grass);color:#26305a}
+.cgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.cg{background:var(--card);border:2px solid var(--line);padding:20px;box-shadow:6px 6px 0 var(--shade)}
+.cg:nth-child(even){box-shadow:6px 6px 0 var(--lamp)}
+.cg h3{font-size:19px;margin-bottom:8px}
+.cmd{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;padding:10px 0;border-bottom:2px dotted var(--line)}
+.cg .cmd:last-child,.gd .in>.cmd:last-child{border-bottom:0}
+.cmd code{font:700 14px "DM Sans",sans-serif;background:var(--bg2);padding:2px 8px;overflow-wrap:anywhere}
+.cmd span{flex:1 1 200px;font-size:16px}
+.cmd .ex{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.cmd .ex code{font-size:13px}
+.gd{background:var(--card);border:2px solid var(--line);margin-bottom:16px;max-width:760px}
+.gd summary{cursor:pointer;font-weight:700;font-size:18px;padding:14px 18px}
+.gd .in{padding:0 18px 18px}
+.gd h4{margin:16px 0 10px;font-size:16px}
+.gd code{font:700 14px "DM Sans",sans-serif;background:var(--bg2);padding:1px 6px}
+.stp{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;margin:0 0 10px;font-size:16px}
+.stp b{width:30px;height:30px;display:grid;place-items:center;background:var(--grass);color:#26305a;font:700 15px "Silkscreen",monospace}
+.stp:nth-of-type(even) b{background:var(--lamp)}
+.sx .gh{font-size:21px;margin:44px 0 12px}
+.sx .gh:first-child{margin-top:4px}
+.sx .intro{max-width:64ch;color:var(--muted);margin:0 0 20px}
+.sx .rk-h .em{font-size:30px;display:block;margin-bottom:4px}
+.sx .rk-b p{margin:0 0 10px}
+.sx .rk-b p:last-child{margin-bottom:0}
+.nt{background:var(--bg2);border-left:4px solid #e0607e;padding:8px 12px;font-size:15px}
+.sx .f h3{font-size:17px}
+.cg3{display:grid;grid-template-columns:repeat(3,46px);gap:3px;margin:0 0 14px;width:max-content}
+.cg3 .c{width:46px;height:46px;border:2px solid var(--line);display:grid;place-items:center;font:700 10px/1.05 "DM Sans",sans-serif;color:#26305a;text-align:center}
+.cg3 .c.e{background:var(--bg2)}
 </style>
 </head>
 <body>
@@ -193,6 +226,7 @@ section{padding:56px 0 72px}
       <button class="tab" role="tab" id="t-fitur" data-tab="fitur" aria-selected="true" aria-controls="p-fitur">Fitur</button>
       <button class="tab" role="tab" id="t-gabung" data-tab="gabung" aria-selected="false" aria-controls="p-gabung" tabindex="-1">Cara Gabung</button>
       <button class="tab" role="tab" id="t-fraksi" data-tab="fraksi" aria-selected="false" aria-controls="p-fraksi" tabindex="-1">Fraksi</button>
+      <button class="tab" role="tab" id="t-guide" data-tab="guide" aria-selected="false" aria-controls="p-guide" tabindex="-1">Guide</button>
       <button class="tab" role="tab" id="t-top-up" data-tab="top-up" aria-selected="false" aria-controls="p-top-up" tabindex="-1">Top Up</button>
       <button class="tab" role="tab" id="t-bantuan" data-tab="bantuan" aria-selected="false" aria-controls="p-bantuan" tabindex="-1">Bantuan</button>
     </div>
@@ -370,6 +404,93 @@ section{padding:56px 0 72px}
   </div>
 </section>
 
+<section id="p-guide" role="tabpanel" aria-labelledby="t-guide" hidden>
+  <div class="wrap">
+    <h2>Guide</h2>
+    <div class="subtabs pills" role="tablist" aria-label="Bagian guide">
+      <button class="stab" role="tab" id="gst-cmd" data-sub="cmd" aria-selected="true" aria-controls="gp-cmd" type="button">Command Dasar</button>
+      <button class="stab" role="tab" id="gst-shop" data-sub="shop" aria-selected="false" aria-controls="gp-shop" tabindex="-1" type="button">Toko Peti</button>
+      <button class="stab" role="tab" id="gst-craft" data-sub="craft" aria-selected="false" aria-controls="gp-craft" tabindex="-1" type="button">Crafting</button>
+      <button class="stab" role="tab" id="gst-season" data-sub="season" aria-selected="false" aria-controls="gp-season" tabindex="-1" type="button">Musim</button>
+      <button class="stab" role="tab" id="gst-villager" data-sub="villager" aria-selected="false" aria-controls="gp-villager" tabindex="-1" type="button">Villager</button>
+    </div>
+
+    <div id="gp-cmd" role="tabpanel" aria-labelledby="gst-cmd">
+      <p class="lead">Command dasar yang sering dipakai di server. Ketik di chat game, dan ganti bagian yang diapit tanda &lt; &gt; dengan isimu sendiri.</p>
+      <div class="cgs"><div class="cg"><h3>Teleportasi</h3><div class="cmd"><code>/spawn</code><span>Kembali ke Spawn utama server</span></div><div class="cmd"><code>/rtp</code><span>Teleportasi acak ke hutan atau wilderness</span></div><div class="cmd"><code>/tpa &lt;nama_player&gt;</code><span>Minta teleport ke lokasi teman<small class="ex">Contoh: <code>/tpa NovvaMC080</code></small></span></div><div class="cmd"><code>/tpaccept</code><span>Terima permintaan teleport dari teman</span></div><div class="cmd"><code>/tpdeny</code><span>Tolak permintaan teleport dari teman</span></div></div><div class="cg"><h3>Rumah (Home)</h3><div class="cmd"><code>/sethome &lt;nama_home&gt;</code><span>Simpan titik rumah<small class="ex">Contoh: <code>/sethome base</code></small></span></div><div class="cmd"><code>/home &lt;nama_home&gt;</code><span>Teleport ke rumah<small class="ex">Contoh: <code>/home base</code></small></span></div><div class="cmd"><code>/homes</code><span>Lihat semua titik rumah milikmu</span></div><div class="cmd"><code>/delhome &lt;nama_home&gt;</code><span>Hapus titik rumah yang tidak dipakai</span></div></div><div class="cg"><h3>Kit</h3><div class="cmd"><code>/kits</code><span>Buka menu GUI pilihan kit</span></div><div class="cmd"><code>/kit &lt;nama_kit&gt;</code><span>Ambil kit langsung lewat chat<small class="ex">Contoh: <code>/kit novice</code></small></span></div></div><div class="cg"><h3>Uang</h3><div class="cmd"><code>/bal</code><span>Cek saldo uang saat ini</span></div><div class="cmd"><code>/pay &lt;nama_player&gt; &lt;jml&gt;</code><span>Transfer uang ke teman<small class="ex">Contoh: <code>/pay NovvaMC080 5000</code></small></span></div><div class="cmd"><code>/baltop</code><span>Lihat 10 pemain terkaya</span></div></div><div class="cg"><h3>Skill dan statistik</h3><div class="cmd"><code>/skills</code><span>Buka menu GUI level skill (Mining, Combat, dan lainnya)</span></div><div class="cmd"><code>/stats</code><span>Cek statistik karakter (Health, Defense, Crit, dan lainnya)</span></div><div class="cmd"><code>/skills top &lt;nama_skill&gt;</code><span>Cek leaderboard skill<small class="ex">Contoh: <code>/skills top mining</code></small></span></div></div></div>
+    </div>
+
+    <div id="gp-shop" role="tabpanel" aria-labelledby="gst-shop" hidden>
+      <p class="lead">Halo warga Chaatown! Mau jualan hasil farming, hasil mining, atau barang langka untuk menambah saldo uangmu? Kamu bisa membuat toko peti sendiri dengan fitur QuickShop.</p>
+      <div class="safe" style="margin:0 0 22px">
+        <h3>Persyaratan</h3>
+        <p>Membuat toko peti khusus untuk rank <strong>Novice ke atas</strong> (Novice, Journeyman, Master). Pemain biasa (Default) hanya bisa membeli atau menjual di toko yang dibuat pemain lain.</p>
+      </div>
+      <details class="gd" open><summary>Player Java Edition</summary><div class="in">
+        <h4>A. Membuat toko jual (menjual barang ke player lain)</h4><p class="stp"><b>1</b><span>Letakkan Chest, Trapped Chest, atau Barrel di area lahan (claim) milikmu.</span></p><p class="stp"><b>2</b><span>Pegang item yang ingin kamu jual di tangan utama (main hand).</span></p><p class="stp"><b>3</b><span>Klik Kanan pada peti menggunakan item tersebut.</span></p><p class="stp"><b>4</b><span>Ketik harga jual yang kamu inginkan di Chat (misalnya <code>500</code>), lalu tekan Enter.</span></p><p class="stp"><b>5</b><span>Toko berhasil dibuat! Tampilan item melayang akan muncul di atas peti.</span></p>
+        <h4>B. Mengubah toko menjadi mode beli (membeli barang dari player lain)</h4><p class="stp"><b>1</b><span>Klik Kanan pada peti tokomu yang sudah jadi untuk membuka menu UI QuickShop.</span></p><p class="stp"><b>2</b><span>Klik tombol atau ikon &quot;Switch to Buying&quot;, atau ketik <code>/quickshop buy</code>.</span></p><p class="stp"><b>3</b><span>Pastikan kamu punya saldo uang yang cukup agar peti bisa membayar player lain yang menjual item kepadamu.</span></p>
+      </div></details>
+      <details class="gd"><summary>Player Bedrock / MCPE Edition</summary><div class="in">
+        <h4>A. Membuat toko jual</h4><p class="stp"><b>1</b><span>Letakkan Chest atau Barrel di area lahan milikmu.</span></p><p class="stp"><b>2</b><span>Pegang item yang ingin dijual di tangan karaktermu.</span></p><p class="stp"><b>3</b><span>Lakukan Jongkok (Sneak) + Ketuk/Tahan (Tap/Long Press) pada peti menggunakan item tersebut.</span></p><p class="stp"><b>4</b><span>Ketik harga jual di kolom Chat, lalu tekan Send/Kirim.</span></p>
+        <h4>B. Transaksi di toko player lain</h4><p class="stp"><b>&#9654;</b><span><strong>Membeli item:</strong> Ketuk atau Klik Kanan pada peti toko milik player lain, lalu ketik jumlah item yang ingin kamu beli di chat.</span></p><p class="stp"><b>&#9654;</b><span><strong>Menjual item:</strong> Ketuk atau Klik Kanan pada peti toko mode beli, lalu ketik jumlah item yang ingin kamu jual dari inventory.</span></p>
+      </div></details>
+      <details class="gd" open><summary>Command penting QuickShop</summary><div class="in">
+        <p style="margin:0 0 6px;color:var(--muted)">Untuk mengelola tokomu tanpa harus merusak peti.</p><div class="cmd"><code>/quickshop price &lt;harga_baru&gt;</code><span>Mengubah harga item di toko yang sedang kamu lihat</span></div><div class="cmd"><code>/quickshop amount &lt;jumlah_baru&gt;</code><span>Mengubah jumlah item transaksi per klik</span></div><div class="cmd"><code>/quickshop remove</code><span>Menghapus atau mencabut status toko dari peti</span></div><div class="cmd"><code>/quickshop staff add &lt;nama_player&gt;</code><span>Menambahkan teman sebagai staff pengelola tokomu</span></div><div class="cmd"><code>/quickshop find &lt;nama_item&gt;</code><span>Mencari lokasi toko terdekat yang menjual item tertentu</span></div>
+      </div></details>
+    </div>
+
+    <div id="gp-craft" role="tabpanel" aria-labelledby="gst-craft" hidden>
+      <div class="soon"><b>Segera hadir</b>Panduan crafting akan muncul di sini.</div>
+    </div>
+
+    <div id="gp-season" role="tabpanel" aria-labelledby="gst-season" hidden>
+      <div class="sx">
+        <h3 class="gh">Panduan lengkap petualangan: Aeternum Seasons</h3>
+        <p class="intro">Halo Chatizen! Selamat datang di sistem musim dinamis ChaaTown. Di sini dunia tidak lagi statis: langit, warna dedaunan, cuaca, sampai perilaku monster berubah secara alami seiring waktu. Pelajari mekaniknya supaya kamu tidak salah langkah saat bertahan hidup.</p>
+
+        <h3 class="gh">📅 Kalender dan siklus musim</h3>
+        <p class="intro">Dunia berjalan dalam siklus tahunan yang teratur. Setiap 1 tahun di game terdiri dari 4 musim utama, dan tiap musim berlangsung tepat 30 hari Minecraft. Satu hari di server sama dengan satu jam di dunia nyata, jadi satu musim berlangsung sekitar 30 jam dunia nyata.</p>
+        <div class="ranks"><article class="rank"><div class="rk-h" style="background:#f9c8d5"><span class="em">🌸</span><h3>Spring (Musim Semi)</h3><small>30 hari</small></div><div class="rk-b"><p>Waktu terbaik untuk bertani. Tanaman tumbuh sangat cepat dan hewan-hewan bermigrasi dengan aman.</p></div></article><article class="rank"><div class="rk-h" style="background:#fbe3a0"><span class="em">☀️</span><h3>Summer (Musim Panas)</h3><small>30 hari</small></div><div class="rk-b"><p>Suhu udara meningkat tajam. Jika hujan turun, para Villager akan memilih bertransaksi di dalam rumah demi kenyamanan.</p></div></article><article class="rank"><div class="rk-h" style="background:#f3cdb8"><span class="em">🍁</span><h3>Autumn (Musim Gugur)</h3><small>30 hari</small></div><div class="rk-b"><p>Daun-daun di bioma seperti Taiga dan Birch berubah warna menjadi keemasan, dan kamu akan menemukan banyak jamur tumbuh. Persiapkan persediaan makanan sebelum musim dingin!</p></div></article><article class="rank"><div class="rk-h" style="background:#b9cdf0"><span class="em">❄️</span><h3>Winter (Musim Dingin)</h3><small>30 hari</small></div><div class="rk-b"><p>Salju tebal menutupi permukaan tanah secara berkala, dan permukaan air terbuka membeku menjadi es.</p><p class="nt">Hewan dan tanaman akan sulit kamu temukan di musim ini. Buatlah greenhouse dan barn untuk menjaga stok makananmu!</p></div></article></div>
+
+        <h3 class="gh">🌾 Mekanik pertanian dan Seasonal Clock</h3>
+        <p class="intro">Bertani sekarang lebih menantang!</p>
+        <div class="grid"><div class="f"><h3>Gagal tumbuh</h3><p>Setiap benih (seed) punya informasi musim tanamnya masing-masing. Kalau kamu menanam benih di luar musim favoritnya, tanaman itu tidak akan tumbuh atau bahkan mati.</p></div><div class="f"><h3>Seasonal Clock</h3><p>Buat Seasonal Clock di crafting table dengan jam biasa dan daylight detector di atasnya. Klik kanan jam ini untuk membuka panel yang menampilkan ramalan cuaca (kapan hujan), ramalan musim, serta jadwal event hari ini dan besok.</p></div></div>
+
+        <h3 class="gh">🌋 Dua dimensi petualangan baru (Adventure Realms)</h3>
+        <p class="intro">Plugin ini membuka gerbang ke dua dunia ekstrem dengan monster yang jauh lebih kuat. Portalnya bisa kamu buat sendiri dengan struktur menyerupai Nether Portal biasa.</p>
+        <div class="ranks"><article class="rank"><div class="rk-h" style="background:#b9cdf0"><span class="em">❄️</span><h3>Frost Realm</h3><small>Dunia Gélido</small></div><div class="rk-b"><p><b>Cara masuk:</b> Bangun bingkai portal dengan Glowstone, lalu aktifkan dengan melempar Snowball ke bagian tengah portal.</p><p><b>Kondisi lingkungan:</b> Jarak pandang sangat rendah karena badai salju (blizzard), dataran membeku, dan suhu ekstrem.</p><p><b>Mekanik monster:</b> Monster di sini punya varian es. Serangan mereka bisa memberi efek Slow (memperlambat) dan Freeze (membekukan darahmu).</p></div></article><article class="rank"><div class="rk-h" style="background:#f6b8b0"><span class="em">🔥</span><h3>Infernal / Heat Realm</h3><small>Dunia Ember</small></div><div class="rk-b"><p><b>Cara masuk:</b> Bangun bingkai portal dengan Nether Wart Block, lalu aktifkan dengan Flint and Steel.</p><p><b>Kondisi lingkungan:</b> Langit membara dan tanah dipenuhi hawa panas ekstrem yang melelehkan.</p><p class="nt">Peluang hidupmu di sini rendah. Usahakan memakai full set Everfrost armor.</p><p><b>Mekanik monster:</b> Monster di realm ini 4x lebih kuat dibanding dunia biasa! Serangan mereka otomatis membakarmu dan memberi damage yang berkali-kali lipat lebih sakit.</p></div></article></div>
+
+        <h3 class="gh">☄️ Seasonal Events</h3>
+        <p class="intro">Secara acak atau di waktu tertentu, dunia ChaaTown bisa mengalami fenomena alam musiman yang langka:</p>
+        <div class="grid"><div class="f"><h3>🔴 Blood Moon (Bulan Darah)</h3><p>Langit berubah merah, monster menjadi jauh lebih agresif, dan tingkat spawn mereka meningkat pesat.</p></div><div class="f"><h3>🌀 Magic Storm (Badai Sihir)</h3><p>Badai energi yang membawa efek-efek aneh ke lingkungan sekitar.</p></div><div class="f"><h3>🎪 Festival</h3><p>Waktu perayaan di mana kamu bisa mendapatkan keuntungan tertentu, tergantung jenis musimnya.</p></div></div>
+
+        <h3 class="gh">🌌 Catatan dimensi lain (Nether dan End)</h3>
+        <div class="grid"><div class="f"><h3>Di Nether</h3><p>Waktu dan musim berjalan terpisah dari dunia atas! Jangan kaget kalau di Overworld sedang Winter, tetapi di Nether kamu justru menemui fenomena alam atau hawa ekstrem yang berbeda.</p></div><div class="f"><h3>Di The End</h3><p>Tempat ini abadi dan hampa, sehingga siklus cuaca maupun 4 musim normal dari dunia atas tidak berlaku di sini demi menjaga keaslian dimensinya.</p></div></div>
+      </div>
+    </div>
+    <div id="gp-villager" role="tabpanel" aria-labelledby="gst-villager" hidden>
+      <div class="sx">
+        <h3 class="gh">Panduan penduduk desa: Realistic Villagers</h3>
+        <p class="intro">Halo Chatizen! Pernah bosan dengan Villager lama yang kaku dan cuma mondar-mandir? Di ChaaTown, para Villager sekarang sudah naik kelas menjadi Realistic Villager! Mereka punya nama, perasaan, keluarga, sampai insting bertarung demi melindungi desanya. Pelajari mekanik penting, fitur asmara, dan cara membuat item khusus mereka supaya kamu bisa mengelola penduduk desamu dengan maksimal.</p>
+
+        <h3 class="gh">💖 Mekanik asmara dan keluarga</h3>
+        <div class="grid"><div class="f"><h3>Pernikahan nyata</h3><p>Villager yang kamu nikahkan dengan Wedding Ring akan tinggal bersama, berbagi inventori tas, dan punya silsilah keluarga yang tercatat di sistem.</p></div><div class="f"><h3>Keturunan dan warisan</h3><p>Pasangan Villager bisa punya anak. Kalau salah satu orang tuanya mati, anak-anak atau hewan peliharaan mereka otomatis dirawat oleh anggota keluarga yang masih hidup.</p></div><div class="f"><h3>Whistle Evacuation</h3><p>Pakai Family Whistle untuk mengumpulkan satu keluarga utuh dalam sekejap demi keselamatan mereka.</p></div></div>
+
+        <h3 class="gh">⚔️ Sistem pertahanan dan perilaku baru</h3>
+        <div class="grid"><div class="f"><h3>Ikut berperang</h3><p>Saat terjadi serangan (Raid), Villager yang memegang senjata tidak akan sembunyi! Mereka ikut mengepung dan memburu monster memakai Crossbow dengan efek Multishot.</p></div><div class="f"><h3>Petani rajin</h3><p>Villager Farmer sekarang bisa memakai cangkul (hoe) untuk membuka lahan baru, dan mereka tidak merusak atau menginjak tanaman mereka sendiri.</p></div><div class="f"><h3>Awas maling</h3><p>Jangan sembarangan menaruh atau membuka peti di dekat mereka. Villager sekarang bisa menjarah (loot) isi chest kalau mendadak butuh item tersebut!</p></div><div class="f"><h3>Jangan menyamar</h3><p>Villager otomatis menyerang pemain yang memakai Monster Head (kepala Zombie atau Creeper) karena mengira kamu monster sungguhan!</p></div></div>
+
+        <h3 class="gh">⚡ Ritual menghidupkan kembali (Revive System)</h3>
+        <p class="intro">Kalau Villager andalan atau trader bintang 5 milikmu mati diserang zombi, kamu bisa membangkitkannya lagi dengan ritual ini:</p>
+        <div style="max-width:720px"><p class="stp"><b>1</b><span><strong>Syarat utama:</strong> Villager tersebut wajib memegang The Cross (salib, resepnya ada di bagian paling bawah) di tasnya sebelum ia tewas.</span></p><p class="stp"><b>2</b><span><strong>Amankan kepala:</strong> Saat mati, Villager menjatuhkan Kepala (Head) di lokasi kematiannya. Segera ambil kepala tersebut!</span></p><p class="stp"><b>3</b><span><strong>Altar kebangkitan:</strong> Bangun monumen atau altar kecil di tanah memakai Block of Emerald.</span></p><p class="stp"><b>4</b><span><strong>Memulai ritual:</strong> Letakkan kepala Villager di atas blok Emerald tersebut, lalu nyalakan api di sekitar altar.</span></p><p class="stp"><b>5</b><span><strong>Cling!</strong> Villager-mu hidup kembali dengan nama, memori keluarga, dan pilihan dagangan (trades) yang sama persis seperti sebelum mati!</span></p></div>
+
+        <h3 class="gh">🛠️ Resep crafting rahasia (special items)</h3>
+        <p class="intro">Buat item khusus di Crafting Table untuk mengendalikan hubungan sosial dan takdir hidup para Villager.</p>
+        <div class="ranks"><article class="rank"><div class="rk-h" style="background:#f9c8d5"><span class="em">💍</span><h3>Wedding Ring</h3><small>Cincin Pernikahan</small></div><div class="rk-b"><div class="cg3" role="img" aria-label="Susunan resep: Diamond di tengah, Gold Ingot di atas, bawah, kiri, dan kanan"><div class="c e"></div><div class="c" style="background:#fbe3a0">Gold</div><div class="c e"></div><div class="c" style="background:#fbe3a0">Gold</div><div class="c" style="background:#aeeaf0">Diamond</div><div class="c" style="background:#fbe3a0">Gold</div><div class="c e"></div><div class="c" style="background:#fbe3a0">Gold</div><div class="c e"></div></div><p><b>Resep:</b> Letakkan 1 Diamond di kotak tengah, lalu kelilingi dengan 4 Gold Ingot (di sisi atas, bawah, kiri, dan kanan) hingga membentuk lingkaran cincin emas bermata berlian.</p><p><b>Fungsi:</b> Pegang cincin ini, lalu klik kanan pada dua Villager dewasa yang saling menyukai untuk menjodohkan dan menikahkan mereka secara resmi!</p></div></article><article class="rank"><div class="rk-h" style="background:#d4c8f3"><span class="em">📜</span><h3>Divorce Papers</h3><small>Surat Perceraian</small></div><div class="rk-b"><div class="cg3" role="img" aria-label="Susunan resep: Shears tepat di atas Paper yang berada di kotak tengah"><div class="c e"></div><div class="c" style="background:#cfd6e6">Shears</div><div class="c e"></div><div class="c e"></div><div class="c" style="background:#ffffff">Paper</div><div class="c e"></div><div class="c e"></div><div class="c e"></div><div class="c e"></div></div><p><b>Resep:</b> Letakkan 1 Paper (kertas) di kotak tengah, lalu taruh 1 Shears (gunting) tepat di atasnya untuk memotong hubungan mereka secara simbolis.</p><p><b>Fungsi:</b> Klik kanan pada Villager yang sudah menikah dengan item ini kalau kamu ingin memisahkan status pernikahan mereka.</p></div></article><article class="rank"><div class="rk-h" style="background:#b9cdf0"><span class="em">🪈</span><h3>Family Whistle</h3><small>Peluit Keluarga</small></div><div class="rk-b"><div class="cg3" role="img" aria-label="Susunan resep: tiga Iron Ingot di pojok kiri atas, tengah atas, dan tengah"><div class="c" style="background:#d9dde8">Iron</div><div class="c" style="background:#d9dde8">Iron</div><div class="c e"></div><div class="c e"></div><div class="c" style="background:#d9dde8">Iron</div><div class="c e"></div><div class="c e"></div><div class="c e"></div><div class="c e"></div></div><p><b>Resep:</b> Susun 3 Iron Ingot membentuk huruf L terbalik (pojok kiri atas, tengah atas, dan tengah).</p><p><b>Fungsi:</b> Saat kamu atau kepala keluarga Villager meniup peluit ini, seluruh anggota keluarganya (istri/suami dan anak-anak) langsung teleport berkumpul ke lokasi suara. Sangat berguna untuk mengevakuasi desa ke bunker saat ada Raid!</p></div></article><article class="rank"><div class="rk-h" style="background:#fbe3a0"><span class="em">✝️</span><h3>The Cross</h3><small>Salib Jiwa</small></div><div class="rk-b"><div class="cg3" role="img" aria-label="Susunan resep: Gold Ingot membentuk salib dengan Stick di tengah bawah"><div class="c e"></div><div class="c" style="background:#fbe3a0">Gold</div><div class="c e"></div><div class="c" style="background:#fbe3a0">Gold</div><div class="c" style="background:#fbe3a0">Gold</div><div class="c" style="background:#fbe3a0">Gold</div><div class="c e"></div><div class="c" style="background:#e0c4a0">Stick</div><div class="c e"></div></div><p><b>Resep:</b> Letakkan Stick di tengah bawah, Gold Ingot di tengah, dan Gold Ingot di kiri, kanan, serta atasnya (membentuk simbol salib emas).</p><p><b>Fungsi:</b> Masukkan item ini ke inventori tas si Villager. Salib ini berfungsi sebagai &quot;asuransi jiwa&quot; agar mereka bisa dihidupkan kembali jika mati!</p></div></article></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="alt" id="developer">
   <div class="wrap">
@@ -461,22 +582,24 @@ section{padding:56px 0 72px}
 </script>
 <script>
 (function(){
-  var st=[].slice.call(document.querySelectorAll('.subtabs [role=tab]'));
-  function open(k,focus){
-    st.forEach(function(t){
-      var on=t.dataset.sub===k;
-      t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;
-      document.getElementById('sp-'+t.dataset.sub).hidden=!on;
-      if(on&&focus)t.focus();
-    });
-  }
-  st.forEach(function(t,i){
-    t.addEventListener('click',function(){open(t.dataset.sub,false)});
-    t.addEventListener('keydown',function(e){
-      var n=null;
-      if(e.key==='ArrowRight')n=(i+1)%st.length;
-      else if(e.key==='ArrowLeft')n=(i-1+st.length)%st.length;
-      if(n!==null){e.preventDefault();open(st[n].dataset.sub,true)}
+  [].forEach.call(document.querySelectorAll('.subtabs'),function(group){
+    var st=[].slice.call(group.querySelectorAll('[role=tab]'));
+    function open(k,focus){
+      st.forEach(function(t){
+        var on=t.dataset.sub===k;
+        t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+        if(on&&focus)t.focus();
+      });
+    }
+    st.forEach(function(t,i){
+      t.addEventListener('click',function(){open(t.dataset.sub,false)});
+      t.addEventListener('keydown',function(e){
+        var n=null;
+        if(e.key==='ArrowRight')n=(i+1)%st.length;
+        else if(e.key==='ArrowLeft')n=(i-1+st.length)%st.length;
+        if(n!==null){e.preventDefault();open(st[n].dataset.sub,true)}
+      });
     });
   });
 })();
